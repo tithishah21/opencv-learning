@@ -8,7 +8,11 @@ blank = np.zeros((500,500,3), dtype='uint8')
 cv.imshow('Blank', blank)
 
 # 1. Paint the image a certain colour
-blank[:] = 0,0,255
+blank[:] = 255,0,0
+cv.imshow('blue', blank)
+
+#paint the certain pixels of img
+blank[200:300 , 300:400] = 0,0,255
 cv.imshow('Red', blank)
 
 # # 2. Draw a Rectangle
