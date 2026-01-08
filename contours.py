@@ -26,6 +26,7 @@ cv.imshow('Thresh', thresh)
 contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
 print(f'{len(contours)} contour(s) found!')
 
+#contours is the list of contours found , here 839
 cv.drawContours(blank, contours, -1, (0,0,255), 1)
 cv.imshow('Contours Drawn in red', blank)
 
