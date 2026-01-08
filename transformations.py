@@ -1,4 +1,5 @@
 #pylint:disable=no-member
+#resizing, flipping & cropping
 
 import cv2 as cv
 import numpy as np
@@ -10,7 +11,9 @@ cv.imshow('Park', img)
 def translate(img, x, y):
     transMat = np.float32([[1,0,x],[0,1,y]])
     dimensions = (img.shape[1], img.shape[0])
+    #WIDTH, HEIGHT
     return cv.warpAffine(img, transMat, dimensions)
+
 
 # -x --> Left
 # -y --> Up
@@ -18,6 +21,7 @@ def translate(img, x, y):
 # y --> Down
 
 translated = translate(img, -100, 100)
+#-100 means left and 100 means down
 cv.imshow('Translated', translated)
 
 # Rotation
@@ -26,7 +30,7 @@ def rotate(img, angle, rotPoint=None):
 
     if rotPoint is None:
         rotPoint = (width//2,height//2)
-    
+
     rotMat = cv.getRotationMatrix2D(rotPoint, angle, 1.0)
     dimensions = (width,height)
 
@@ -37,16 +41,16 @@ cv.imshow('Rotated', rotated)
 
 rotated_rotated = rotate(img, -90)
 cv.imshow('Rotated Rotated', rotated_rotated)
-
-# Resizing
-resized = cv.resize(img, (500,500), interpolation=cv.INTER_CUBIC)
+#
+# # Resizing
+resized = cv.resize(img, (500,300), interpolation=cv.INTER_CUBIC)
 cv.imshow('Resized', resized)
-
-# Flipping
+#
+# # Flipping
 flip = cv.flip(img, -1)
 cv.imshow('Flip', flip)
-
-# Cropping
+#
+# # Cropping
 cropped = img[200:400, 300:400]
 cv.imshow('Cropped', cropped)
 
