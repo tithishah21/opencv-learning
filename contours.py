@@ -20,8 +20,8 @@ cv.imshow('Blur', blur)
 canny = cv.Canny(blur, 125, 175)
 cv.imshow('Canny Edges', canny)
 
-# ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY)
-# cv.imshow('Thresh', thresh)
+ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY)
+cv.imshow('Thresh', thresh)
 
 contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
 print(f'{len(contours)} contour(s) found!')
