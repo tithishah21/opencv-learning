@@ -1,4 +1,6 @@
 #pylint:disable=no-member
+#boundaries of an object
+#used in shape analysis
 
 import cv2 as cv
 import numpy as np
