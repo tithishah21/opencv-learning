@@ -17,7 +17,7 @@ mask = cv.circle(blank, (img.shape[1]//2,img.shape[0]//2), 100, 255, -1)
 masked = cv.bitwise_and(img,img,mask=mask)
 cv.imshow('Mask', masked)
 
-# GRayscale histogram
+# Grayscale histogram
 # gray_hist = cv.calcHist([gray], [0], mask, [256], [0,256] )
 
 # plt.figure()
