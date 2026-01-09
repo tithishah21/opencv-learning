@@ -2,11 +2,14 @@
 
 import cv2 as cv
 import numpy as np
+#allows us to focus on certain parts of img
 
 img = cv.imread('../Resources/Photos/cats 2.jpg')
 cv.imshow('Cats', img)
 
 blank = np.zeros(img.shape[:2], dtype='uint8')
+#dimensions of masking shd be same as that of img else it won't work
+
 cv.imshow('Blank Image', blank)
 
 circle = cv.circle(blank.copy(), (img.shape[1]//2 + 45,img.shape[0]//2), 100, 255, -1)
